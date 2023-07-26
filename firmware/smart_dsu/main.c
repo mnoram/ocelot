@@ -403,10 +403,10 @@ void CAN3_RX0_IRQ_Handler(void) {
           }
           if(dat[7] == toyota_checksum(address, dat, 8)) {
             // add permit_braking and recompute the checksum
-            dat[2] &= 0x3F; // mask off the top 2 bits
-            dat[2] |= (1 << 6U); // SET_ME_X01
-            dat[3] |= (1 << 6U); // permit_braking
-            dat[7] = toyota_checksum(address, dat, 8); 
+            //dat[2] &= 0x3F; // mask off the top 2 bits
+            //dat[2] |= (1 << 6U); // SET_ME_X01
+            //dat[3] |= (1 << 6U); // permit_braking
+            //dat[7] = toyota_checksum(address, dat, 8); 
             if (enable_acc){ 
               // modify this before sending to the car only if requested
               dat[0] = (acc_cmd >> 8U);
